@@ -4,7 +4,7 @@ const words = "I do not treat hearts. I sit with the people who carry them.".spl
 
 export function Philosophy() {
   return (
-    <section className="relative px-6 py-48 md:px-16">
+    <section className="relative px-6 py-24 md:py-48 md:px-16">
       <div className="mx-auto max-w-5xl text-center">
         <motion.p
           initial={{ opacity: 0 }}

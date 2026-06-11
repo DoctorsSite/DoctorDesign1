@@ -41,7 +41,7 @@ export function Achievements() {
             viewport={{ once: true, margin: "-200px" }}
             transition={{ duration: 1, delay: i * 0.06 }}
             style={{ transformPerspective: 1200 }}
-            className="glass-panel flex h-[420px] w-[320px] shrink-0 flex-col justify-between rounded-3xl p-8 md:h-[480px] md:w-[360px]"
+            className="glass-panel flex h-[380px] w-[280px] shrink-0 flex-col justify-between rounded-2xl p-6 sm:h-[420px] sm:w-[320px] sm:p-8 md:h-[480px] md:w-[360px] md:rounded-3xl"
           >
             <div>
               <div className="mb-8 flex items-start justify-between">

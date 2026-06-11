@@ -9,9 +9,9 @@ export function Consult() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="glass-panel rounded-[2rem] p-10 md:p-20"
+          className="glass-panel rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-10 md:p-20"
         >
-          <div className="grid gap-12 md:grid-cols-[1fr_1fr]">
+          <div className="grid gap-8 md:gap-12 md:grid-cols-[1fr_1fr]">
             <div>
               <p className="mb-6 text-xs uppercase tracking-[0.4em] text-primary">Consultation</p>
               <h2 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1] text-gradient-fade">

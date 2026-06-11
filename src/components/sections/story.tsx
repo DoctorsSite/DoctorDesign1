@@ -15,7 +15,7 @@ export function Story() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "100%"]);
 
   return (
-    <section id="story" ref={ref} className="relative px-6 py-40 md:px-16">
+    <section id="story" ref={ref} className="relative px-6 py-24 md:py-40 md:px-16">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -38,7 +38,7 @@ export function Story() {
             </div>
           </div>
 
-          <div className="col-start-2 flex flex-col gap-32">
+          <div className="col-start-2 flex flex-col gap-20 md:gap-32">
             {milestones.map((m, i) => (
               <motion.div
                 key={m.year}

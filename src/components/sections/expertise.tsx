@@ -9,17 +9,17 @@ const services = [
 
 export function Expertise() {
   return (
-    <section id="expertise" className="relative overflow-hidden px-6 py-40 md:px-16">
+    <section id="expertise" className="relative overflow-hidden px-6 py-24 md:py-40 md:px-16">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-24"
+          className="mb-14 md:mb-24"
         >
           <p className="mb-6 text-xs uppercase tracking-[0.4em] text-primary">Practice</p>
-          <h2 className="text-[clamp(3rem,10vw,9rem)] leading-[0.9] text-gradient-fade">
+          <h2 className="text-[clamp(2.5rem,10vw,9rem)] leading-[0.9] text-gradient-fade">
             Precision.<br />
             <em className="italic font-light text-accent">Quietly</em> delivered.
           </h2>
@@ -35,7 +35,7 @@ export function Expertise() {
               transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, rotateX: -2, rotateY: 2 }}
               style={{ transformPerspective: 1200, transformStyle: "preserve-3d" }}
-              className="group glass-panel relative overflow-hidden rounded-3xl p-10 transition-shadow hover:shadow-[0_40px_80px_-20px_oklch(0_0_0/0.6)]"
+              className="group glass-panel relative overflow-hidden rounded-2xl md:rounded-3xl p-7 md:p-10 transition-shadow hover:shadow-[0_40px_80px_-20px_oklch(0_0_0/0.6)]"
             >
               <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-70 opacity-30" />
               <div className="relative">

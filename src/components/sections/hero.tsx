@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef, lazy, Suspense } from "react";
-import { Sun, Moon } from "lucide-react";
+import { useRef, lazy, Suspense, useState } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import doctorPortrait from "@/assets/doctor-portrait.jpg";
 import { useTheme } from "@/lib/theme";
 
@@ -13,6 +13,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const { theme, toggle } = useTheme();
   const isInView = useInView(ref, { margin: "0px 0px -100px 0px" });
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <section ref={ref} className="relative min-h-screen w-full overflow-hidden">
@@ -29,7 +30,7 @@ export function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute left-0 right-0 top-0 z-50 flex items-center justify-between px-8 py-6 md:px-16"
+        className="absolute left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-6 md:px-16"
       >
         <div className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase">
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
@@ -49,11 +50,58 @@ export function Hero() {
           >
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
-          <a href="#consult" className="rounded-full border border-border px-5 py-2 text-xs tracking-[0.2em] uppercase hover:bg-primary hover:text-primary-foreground transition">
+          <a href="#consult" className="hidden md:inline-flex rounded-full border border-border px-5 py-2 text-xs tracking-[0.2em] uppercase hover:bg-primary hover:text-primary-foreground transition">
             Consult
           </a>
+          <button
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            className="md:hidden rounded-full border border-border p-2 text-muted-foreground hover:text-foreground transition"
+          >
+            <Menu size={16} />
+          </button>
         </div>
       </motion.nav>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10 md:hidden"
+        >
+          <button
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+            className="absolute top-6 right-6 rounded-full border border-border p-2 text-muted-foreground hover:text-foreground transition"
+          >
+            <X size={16} />
+          </button>
+          {[
+            { href: "#story", label: "Story" },
+            { href: "#expertise", label: "Expertise" },
+            { href: "#achievements", label: "Awards" },
+            { href: "#testimonials", label: "Patients" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-2xl tracking-[0.3em] uppercase text-foreground/80 hover:text-foreground transition"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#consult"
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 rounded-full border border-border px-8 py-3 text-sm tracking-[0.25em] uppercase hover:bg-primary hover:text-primary-foreground transition"
+          >
+            Consult
+          </a>
+        </motion.div>
+      )}
 
       {/* Content */}
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pt-24 text-center">
